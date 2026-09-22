@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>史晓维专属 · 心动快乐补给站 ❤️</title>
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+
+  <!-- Canvas 背景粒子与星空特效层 -->
+  <canvas id="canvas-stars"></canvas>
+  <canvas id="canvas-heart"></canvas>
+
+  <!-- 右上角悬浮工具栏 (音乐播放 + 夜间星空模式切换) -->
+  <div class="top-nav">
+    <button id="music-toggle-btn" class="icon-btn music-btn" title="播放专属浪漫音乐">
+      🎵
+    </button>
+    <button id="theme-toggle-btn" class="icon-btn" title="切换星空模式">
+      🌙
+    </button>
+  </div>
+
+  <!-- 主页面容器 -->
+  <div class="main-wrapper">
+
+    <!-- 顶部横幅与爱意计时 -->
+    <header class="header-hero">
+      <div class="crown-badge">👑 宇宙第一可爱小仙女 · 史晓维专属</div>
+      <h1 id="hero-title" class="title-glow">史晓维的专属心动空间</h1>
+      <p id="hero-subtitle" class="subtitle">张博暄为最爱的宝宝特别定制 · 今日份甜度已超标</p>
+
+      <!-- 恋爱计时器 -->
+      <div class="timer-container">
+        <div class="timer-label">
+          <span>💖 我们已经相知相爱了：</span>
+        </div>
+        <div class="timer-boxes">
+          <div class="time-unit">
+            <span id="time-days" class="time-val">0</span>
+            <span class="time-tag">天</span>
+          </div>
+          <div class="time-unit">
+            <span id="time-hours" class="time-val">00</span>
+            <span class="time-tag">时</span>
+          </div>
+          <div class="time-unit">
+            <span id="time-minutes" class="time-val">00</span>
+            <span class="time-tag">分</span>
+          </div>
+          <div class="time-unit">
+            <span id="time-seconds" class="time-val">00</span>
+            <span class="time-tag">秒</span>
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <!-- 第一幕：逗开心 · 心情打卡机 & 彩虹屁扭蛋 -->
+    <section class="glass-card">
+      <div class="card-title-group">
+        <span>💊</span>
+        <h2>今日份小祖宗心情打卡机</h2>
+      </div>
+      <p class="card-desc">无论今天是什么心情，小张永远是晓维的第一响应人和快乐制造机！点击你的当前状态：</p>
+      
+      <!-- 心情按钮组 -->
+      <div id="mood-grid" class="mood-grid"></div>
+
+      <!-- 彩虹屁扭蛋机 -->
+      <div class="fart-section">
+        <button id="fart-btn" class="fart-btn">
+          <span>✨ 点击抽取今日专属彩虹屁 ✨</span>
+        </button>
+        <div id="fart-result" class="fart-result">点击上方按钮，接收来自张博暄的专属夸奖~</div>
+      </div>
+    </section>
+
+    <!-- 第二幕：搞怪互动 · 偏心问答 & 逃跑按钮 -->
+    <section class="glass-card">
+      <div class="card-title-group">
+        <span>🎯</span>
+        <h2>求生欲大考验 · 绝对偏心问答</h2>
+      </div>
+      <p class="card-desc">听说有人想选第二项？温馨提示：错误选项长了腿，可能会随时开溜哦~</p>
+
+      <div class="quiz-box">
+        <div id="quiz-question" class="quiz-question">加载题目中...</div>
+        <div id="quiz-action-area" class="quiz-action-area">
+          <button id="quiz-btn-a" class="choice-btn choice-btn-correct">选项 A</button>
+          <button id="quiz-btn-b" class="choice-btn choice-btn-runaway">选项 B</button>
+        </div>
+      </div>
+    </section>
+
+    <!-- 第三幕：女友特权 · 心愿兑换券 -->
+    <section class="glass-card">
+      <div class="card-title-group">
+        <span>🎫</span>
+        <h2>史晓维专属 · 女王特权兑换券</h2>
+      </div>
+      <p class="card-desc">张博暄亲自签发，凭券即可行使至高权力，永久有效，支持随时在线核销！</p>
+      
+      <div id="coupons-grid" class="coupons-grid"></div>
+    </section>
+
+    <!-- 第四幕：深情回忆 · 拍立得时光画廊 -->
+    <section class="glass-card">
+      <div class="card-title-group">
+        <span>📷</span>
+        <h2>时光印记 · 拍立得回忆长廊</h2>
+      </div>
+      <p class="card-desc">点击卡片即可翻转查看背面悄悄话，定格与你在一起的每一个心动瞬间：</p>
+
+      <div id="polaroid-grid" class="polaroid-grid"></div>
+    </section>
+
+    <!-- 第五幕：手写情书 · 打字机沉浸阅读 -->
+    <section class="glass-card">
+      <div class="card-title-group">
+        <span>💌</span>
+        <h2>给史晓维的一封慢递情书</h2>
+      </div>
+      <p class="card-desc">有些话藏在心底，只想慢慢敲给你听：</p>
+
+      <div class="letter-box">
+        <div id="letter-content" class="letter-content">
+          <span class="cursor-blink"></span>
+        </div>
+        <div class="letter-controls">
+          <button id="replay-letter-btn" class="replay-btn">重新阅读 ↺</button>
+        </div>
+      </div>
+    </section>
+
+    <!-- 底部版权与浪漫致敬 -->
+    <footer>
+      <p id="footer-text">Created with all love by <strong>张博暄</strong> for <strong>史晓维</strong></p>
+      <p style="margin-top: 8px;">
+        愿所有的欢喜与温柔，岁岁年年皆为你 <span class="footer-heart">❤️</span>
+      </p>
+    </footer>
+
+  </div>
+
+  <!-- 通用互动弹窗 -->
+  <div id="modal-overlay" class="modal-overlay">
+    <div class="modal-content">
+      <div id="modal-title" class="modal-title">提示</div>
+      <div id="modal-body" class="modal-body">内容</div>
+      <button id="modal-close-btn" class="modal-close-btn">开心收下</button>
+    </div>
+  </div>
+
+  <!-- 脚本引入 -->
+  <script src="js/config.js"></script>
+  <script src="js/heart.js"></script>
+  <script src="js/audio.js"></script>
+  <script src="js/main.js"></script>
+</body>
+</html>
